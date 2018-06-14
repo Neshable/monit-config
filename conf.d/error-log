@@ -1,7 +1,8 @@
 check file error.log with path /var/log/nginx/error.log
-    if match "error" then exec "/usr/local/bin/slack.sh"
-    if match "^timed out" then exec "/usr/local/bin/slack.sh"
+     if match "crit" then exec "/usr/local/bin/slack.sh"
+     if match "emerg" then exec "/usr/local/bin/slack.sh"
+     if match "^timed out" then exec "/usr/local/bin/slack.sh"
 
 # Add all WordPress debug log dirs
-check file debug.log with path /home/wordpress/wp-content/debug.log
-       if match "PHP Fatal error" then exec "/usr/local/bin/slack.sh"
+#check file debug.log with path /home/wordpress/wp-content/debug.log
+#        if match "PHP Fatal error" then exec "/usr/local/bin/slack.sh"
