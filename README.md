@@ -6,4 +6,4 @@ Files go to /etc/monit/conf.d
 
 # Slack notifactions
 slack-url goes to /etc/monit/
-slack.sh goes to /usr/local/bin/
+slack.sh goes to /usr/local/bin/ with command `sudo chmod +x /usr/local/bin/slack.sh`
