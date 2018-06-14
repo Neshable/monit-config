@@ -1,0 +1,7 @@
+##
+# Websites uptime monitor
+##
+
+# website
+check host website.net with address website.net
+   if failed port 80 protocol http for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
