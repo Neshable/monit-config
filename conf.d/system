@@ -1,18 +1,11 @@
 #Monitor general system resources
 check system $HOSTNAME
-   if memory > 82% for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
-   if swap > 50% for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
-   if cpu > 82% for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
-   if loadavg (5min) > 1 for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
+   if memory > 95% for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
+   if swap > 70% for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
+   if cpu > 90% for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
+   if loadavg (5min) > 3 for 2 cycles then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
 
 #Check disk usage
 check filesystem rootfs with path /
-   if space usage > 80% then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
+   if space usage > 85% then exec "/usr/local/bin/slack.sh" else if succeeded then exec "/usr/local/bin/slack.sh"
 
-# mysql
-check process mysqld with pidfile /var/lib/mysql/mysqld.pid
-   group database
-   start program = "/etc/init.d/mysql start"
-   stop program = "/etc/init.d/mysql stop"
-   if failed host 127.0.0.1 port 3306 then exec "/usr/local/bin/slack.sh"
-   # if 5 restarts within 5 cycles then timeout

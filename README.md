@@ -1,3 +1,6 @@
+# Install
+Run the `install.sh` script to install and configure monit.
+
 # monit-config
 Config files for monit - https://mmonit.com/monit/
 
