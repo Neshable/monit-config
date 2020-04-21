@@ -16,6 +16,10 @@ chmod +x /usr/local/bin/slack.sh
 echo 'Enter your slack webhook url:'
 read url
 echo $url > ./slack/slack-url
+cp ./slack/slack-url /etc/monit/
+
+# open localhost post
+ufw allow from 127.0.0.1 to 127.0.0.1 port 2812
 
 # run monit
 monit
